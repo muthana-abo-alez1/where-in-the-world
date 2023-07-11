@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/bondi.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>where in the world?</title>
+  </head>
+  <body class="bg-light" style="min-height: 100vh;">
+    <nav class="navbar navbar-expand-lg navbar-light  shadow-sm p-2 mb-5  rounded flex-nowrap">
+      <div class="container min-width-335 ">
+        <h1 class="navbar-brand m-0 ">Where in the world?</h1>
+          <input type="checkbox" id="dark-toggle">
+          <label for="dark-toggle">
+          <div class="dark d-flex flex-nowrap mt-3" onclick="dark_mode()">
+              <i class="fa-regular fa-moon mt-1  pe-1"></i>
+                  <p>Dark Mode</p>
+          </div>
+      </label>
+      </div>
+    </nav>
+    <div class="container custom-size min-width-335">
+        <a href="../html/index.html" class="btn  shadow-sm ps-4 pe-4 pt-0 pb-0 mb-5"id="link" >
+          <i class="fa-solid fa-arrow-left"></i>
+          <button type="button" class="btn">Back</button>
+        </a>
+        <div class="d-flex justify-content-between flex-wrap min-h">
+          <img id="countryImage" class="w-40 h-100 img-fluid min-width-335" alt="Error in image" />
+          <div class="data w-50">
+            <div class="details d-flex flex-wrap">
+              <h2 id="countryName" class="fw-bold w-100 pt-4 min-h-100"></h2>
+              <div class="information w-50 pt-3">
+                <ul class="list-group list-group-flush list-unstyled fw-500">
+                  <li class="">Native Name:<span id="nativeName" class="list-value ms-1"></span></li>
+                  <li class="">Population:<span id="population" class="list-value ms-1"></span></li>
+                  <li class="">Region:<span id="region" class="list-value ms-1"></span></li>
+                  <li class="">Sub Region:<span id="subRegion" class="list-value ms-1"></span></li>
+                  <li class="">Capital:<span id="capital" class="list-value ms-1"></span></li>
+                </ul>
+              </div>
+              <div class="information w-50 pt-3">
+                <ul class="list-group list-group-flush list-unstyled fw-500">
+                  <li class="">Top Level Domain:<span id="topLevelDomain" class="list-value ms-1 fw-normal"></span></li>
+                  <li class="">Currencies:<span id="currencies" class="list-value ms-1 fw-normal"></span></li>
+                  <li class="">Languages:<span id="languages" class="list-value ms-1 fw-normal"></span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap pt-5">
+              <label class="fw-500 pe-2">Border Countries:</label>
+              <div class="w-75 ps-3 buttons">
+                <button type="button" id="borderCountry1" class="btn shadow-sm pt-0 pb-0 w-25 fs-6"></button>
+                <button type="button" id="borderCountry2" class="btn shadow-sm pt-0 pb-0 w-25 fs-6"></button>
+                <button type="button" id="borderCountry3" class="btn shadow-sm pt-0 pb-0 w-25 fs-6"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+  <script src="../js/all.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="../js/app.js"></script>
+  <script src="../js/darkMode.js"></script>
+  <script src="../js/country.js"></script>
+
+</script>
+</body>
+</html>
+
+
