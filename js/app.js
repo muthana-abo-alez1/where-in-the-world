@@ -1,16 +1,12 @@
-
+import {getCountriesService,getCountrysByNameService} from "../api/countryService.js"
 const parentDiv = document.getElementById("Countries");
 const nameInput = document.getElementById("Search");
 const dropdownMenu = document.querySelector('.dropdown-menu');
 const options = dropdownMenu.querySelectorAll('.dropdown-item');
-const childDivs = parentDiv.querySelectorAll('div');
 const region = document.getElementById("region");
 const favorite = document.getElementById("favorite");
-const numberOfDivs = childDivs.length;
 
-window.addEventListener("load", displayCountries)
-window.addEventListener("load", getItemFromLocalStorage("country"))
-
+window.addEventListener("load", displayCountries, getItemFromLocalStorage("country"))
 window.addEventListener("click", filter)
 
 var nameOfCountry ;
@@ -22,7 +18,7 @@ function filter() {
 options.forEach(option => {
     option.addEventListener('click', function() {
         const selectedRegion = option.dataset.region;
-        region.innerText=selectedRegion;
+        region.innerText=selectedRegion
         const filteredCountries = filterCountriesByRegion(selectedRegion);
         const countryListElement = document.getElementById("Countries");
         countryListElement.innerHTML = '';
@@ -55,7 +51,6 @@ if(countries==null)return;
 
 const countryListElement = document.getElementById("Countries");
 countries=filterCountriesByName(FavoriteCountries);
-console.log(countries)
 countries.forEach(country => {
     const countryCard = createCountryCard(country);
     countryListElement.appendChild(countryCard);
@@ -64,9 +59,9 @@ countries.forEach(country => {
 
 async function getCountriesData() {
 if (nameOfCountry == "" || nameOfCountry == null) 
-    countriesData = await getCountries();
+    countriesData = await getCountriesService();
     else 
-    countriesData = await getCountrysByName(nameOfCountry);
+    countriesData = await getCountrysByNameService(nameOfCountry);
 return countriesData;
 }
 
@@ -102,27 +97,13 @@ return array.join(", ");
 
 nameInput.addEventListener("keyup", function() {
 nameOfCountry = nameInput.value;
-console.log(nameOfCountry)
 displayCountries() 
 });
 
-async function getCountrysByName(name){
-try {
-    const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
-    if (response.status === 404) {
-        throw new Error("Country not found");
-    }
-    const countriesData = await response.json();
-    return countriesData;
-} catch (error) {
-    console.log("Error:", error.message);
-    return null;
-}
-}
 
 async function getCountries() {
 try {
-    const response = await fetch("https://restcountries.com/v3.1/all");
+    const response = await fetch(`${baseApiUrl}/all`);
     const countriesData = await response.json();
     return countriesData;
 } catch (error) {
@@ -142,7 +123,7 @@ function getItemFromLocalStorage(key){
 }
 
 async function displayFavorites(item){
-    const countries = await getCountrysByName(item);
+    const countries = await getCountrysByNameService(item);
     if(countries==null)return;
     countries.forEach(country => {
     const countryCard = createCountryCard(country);
