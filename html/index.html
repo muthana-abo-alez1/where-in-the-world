@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>where in the world?</title>
 </head>
 <body class="bg-light">
@@ -28,36 +29,48 @@
     </nav>
     <script src="../js/darkMode.js"></script>
   <div class="container pb-4">
-  <div class="d-flex justify-content-between flex-wrap">
+  <div class="d-flex justify-content-between flex-wrap ">
       <label for="Search" class="input-group w-35 min-w-100 flex-nowrap shadow-sm p-3 mb-4 rounded d-flex justify-content-between align-items-center cursor-pointer">
           <i class="fa-solid fa-magnifying-glass ps-2 pe-2"></i>
           <input type="text" id="Search" class="form-control border-0 outline-none"  placeholder="Search for country..." aria-label="Search for country..." aria-describedby="addon-wrapping">
       </label>
-      <div class="dropdown">
+      <div class="dropdown" draggable="true" data-draggable-id="Jordan">
           <button class="btn btn-secondary dropdown-toggle custom-dropdown-toggle border-0 shadow-sm ps-3 pe-5 mb-4 rounded" id="region" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Filter by Region
+            Filter by
             <i class="fa-solid fa-chevron-down position-absolute ps-3 pt-1"></i>
           </button>
-          <ul class="dropdown-menu mt-2">
+          <ul class="dropdown-menu mt-2" >
             <li><a class="dropdown-item" data-region="Filter by Region" href="#">No Filter</a></li>
             <li><a class="dropdown-item" data-region="Africa" href="#">Africa</a></li>
             <li><a class="dropdown-item" data-region="Americas" href="#">America</a></li>
             <li><a class="dropdown-item" data-region="Asia" href="#">Asia</a></li>
             <li><a class="dropdown-item" data-region="Europe" href="#">Europe</a></li>
             <li><a class="dropdown-item" data-region="Oceania" href="#">Oceania</a></li>
+            <li><a class="dropdown-item" data-region="Favourites" href="#">Favourites</a></li>
+
           </ul>
         </div>
   </div> 
   <div class="d-flex justify-content-between items">
-  <div class="favorite w-25 h-100 col-12 p-3 row g-2 custom-size shadow-sm " id="favorite">
-    <h3>favorites</h3>
-  </div>
-  <div class="row g-4 w-70 pt-3 custom-size" id="Countries"  >
-    </div> 
+    <div class="favorite  col-3 p-3  g-2 custom-size-favorite shadow-sm " id="favorite">
+      <h3 class="fw-bold pb-3">favorites</h3>
+    </div>
+    <div class="row g-4 col-9 pt-3 custom-size" id="Countries" >
+   
+  </div> 
   </div>
   <script src="../js/all.min.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="../js/app.js"></script>
- 
+  <script type="module" src="../js/app.js" ></script>
+  <script>
+    window.addEventListener("load", function() {
+      setTimeout(function() {
+        var script = document.createElement('script');
+        script.src = "../js/draggable.js";
+        script.type = "module"
+        document.body.appendChild(script);
+      }, 2000);
+    });
+  </script> 
 </body>
 </html>
