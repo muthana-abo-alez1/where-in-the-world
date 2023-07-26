@@ -1,0 +1,19 @@
+.flags-favorite {
+    max-height: 35px;
+    max-width: 60px;
+    min-width: 60px;
+    min-height: 35px;
+  }
+  .remove-element {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    height: 16px;
+  }
+  .fa-circle-xmark {
+    color: var(--main-color-black);
+    cursor: pointer;
+  }
+  .fa-circle-xmark:hover {
+    color: red;
+  }

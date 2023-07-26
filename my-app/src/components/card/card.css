@@ -1,0 +1,109 @@
+
+  .star-label {
+    font-size: 150%;
+    color: var(--main-color-gray);
+    display: none;
+  }
+  .flag {
+    height: 180px !important;
+    width: 100% !important;
+    object-fit: cover;
+    min-height: 180px;
+  }
+
+  .card {
+    cursor: move;
+  }
+  .custom-size {
+    max-height: 70vh;
+    overflow: auto;
+  }
+  #Countries {
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color-gray);
+  }
+  #Countries::-webkit-scrollbar {
+    width: 12px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  #Countries::-webkit-scrollbar-track {
+    border: var(--main-color-gray) solid 1px;
+    background: var(--main-color-white);
+  }
+  
+  #Countries::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    border-radius: 30px 30px 30px 30px;
+  }
+  .custom-size a {
+    background-color: var(--main-color-white);
+  }
+  .custom-size a button {
+    background-color: var(--main-color-white);
+    color: var(--main-color-black);
+  }
+  button:hover {
+    color: var(--main-color-black) !important;
+  }
+  .card {
+    min-width: 250px;
+    min-height: 320px;
+    background-color: var(--main-color-white);
+    max-height: 370px;
+  }
+  .col {
+    min-width: 300px;
+    max-width: 330px;
+  }
+  .fa-chevron-down {
+    color: var(--main-color-black);
+  }
+  
+  .draggable {
+    cursor: move;
+  }
+  .draggable:hover {
+    opacity: 0.5;
+  }
+  .star.orange {
+    color: orange;
+  }
+  @media (max-width: 991.9999px) {
+    .custom-size {
+      justify-content: center !important;
+      min-width: 375px;
+    }
+  }
+  @media (max-width: 1199px) {
+    .custom-size {
+      padding-left: 20px;
+    }
+    .col {
+      max-width: 320px !important ;
+    }
+  }
+  @media (max-width: 778px) {
+    .items {
+      display: flex;
+      flex-wrap: wrap !important;
+    }
+    .card {
+      max-height: 380px !important;
+    }
+    .custom-size {
+      padding-left: 20px;
+      max-height: 100vh;
+      overflow: "";
+    }
+    .star-label {
+      display: block;
+    }
+    #countryImage {
+      min-width: 335px !important;
+      min-height: 200px !important;
+    }
+    .draggable:hover {
+      opacity: 1;
+    }
+  }
+  
