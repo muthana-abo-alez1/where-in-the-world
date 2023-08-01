@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import Header from './components/header/header.js';
-import Search from './components/search/search';
-import Filter from './components/filter/filter';
-import CardList from './components/CardList/cardList';
-import FavoriteList from './components/favoriteList/favoriteList';
-import { getCountriesService } from './services/api/countryService.js';
-import { droppable, setOnFavoriteAdded } from './js/draggable.js';
-
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Header from "./components/header/header.js";
+import Search from "./components/search/search";
+import Filter from "./components/filter/filter";
+import CardList from "./components/CardList/cardList";
+import FavoriteList from "./components/favoriteList/favoriteList";
+import { getCountriesService } from "./services/api/countryService.js";
+import { droppable, setOnFavoriteAdded } from "./js/draggable.js";
+import { handleFavourites } from "./components/filter/filter";
+import { checkDarkMode } from "./js/darkMode.js";
 function App() {
   const [countriesData, setCountriesData] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState("Filter by Region");
   const [favorites, setFavorites] = useState([]);
@@ -19,41 +20,49 @@ function App() {
     async function fetchData() {
       try {
         const data = await getCountriesService();
-        setCountriesData(data); 
+        setCountriesData(data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     }
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const filteredCountriesData = countriesData.filter((country) => {
-      const matchesQuery = country.name.common.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesRegion = selectedRegion === "Filter by Region" || country.region === selectedRegion;
-      return matchesQuery && matchesRegion;
-    });
-    setFilteredCountries(filteredCountriesData);
-  }, [searchQuery, selectedRegion, countriesData]);
-
   const handleRegionFilter = (region) => {
     setSelectedRegion(region);
   };
-
   useEffect(() => {
-    droppable(); 
+    var filteredCountriesData;
+    async function filter() {
+      filteredCountriesData = countriesData.filter((country) => {
+        const matchesQuery = country.name.common
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
+        var matchesRegion =
+          selectedRegion === "Filter by Region" ||
+          country.region === selectedRegion;
+        return matchesQuery && matchesRegion;
+      });
+      if (selectedRegion === "Favourites")
+        filteredCountriesData = await handleFavourites();
+      setFilteredCountries(filteredCountriesData);
+    }
+    filter();
+    setFilteredCountries(filteredCountriesData);
+  }, [searchQuery, selectedRegion, countriesData]);
+  useEffect(() => {
+    droppable();
     setOnFavoriteAdded((favoriteName) => {
-    setFavorites(favoriteName);
+      setFavorites(favoriteName);
     });
   }, []);
 
-
-  droppable(); 
+  droppable();
   return (
     <div className="App">
       <Header />
-      <div className='container container-body gap-5'>
-        <div className='d-flex justify-content-between flex-wrap mb-4'>
+      <div className="container container-body gap-5">
+        <div className="d-flex justify-content-between flex-wrap mb-4">
           <Search onFilter={setSearchQuery} />
           <Filter onRegionFilter={handleRegionFilter} />
         </div>

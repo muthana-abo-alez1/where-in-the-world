@@ -1,5 +1,5 @@
-import React from 'react';
-import Card from '../card/card.js';
+import React from "react";
+import Card from "../card/card.js";
 
 const CardList = ({ countries }) => {
   return (
@@ -13,8 +13,7 @@ const CardList = ({ countries }) => {
           population={card.population.toLocaleString()}
           region={card.region}
           capital={card.capital}
-          onFavoriteChange={(isChecked) => {
-          }}
+          onFavoriteChange={(isChecked) => {}}
         />
       ))}
     </>

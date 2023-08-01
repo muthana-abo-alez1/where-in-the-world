@@ -53,10 +53,6 @@ body {
 .buttons {
   min-width: 350px;
 }
-#countryImage {
-  min-width: 550px;
-  min-height: 300px;
-}
 .buttons button {
   min-width: 110px;
   background-color: var(--main-color-white);
@@ -82,7 +78,9 @@ body {
   --main-color-black: #ffffff;
   --main-color-gray: #ffffff;
 }
-
+.dark {
+  color: var(--main-color-black);
+}
 .navbar {
   min-width: 375px;
   background-color: var(--main-color-white);
@@ -164,14 +162,15 @@ button:hover {
 .fa-chevron-down {
   color: var(--main-color-black);
 }
-
+.btn{
+  color: var(--main-color-black) !important;
+}
 .draggable {
   cursor: move;
 }
 .draggable:hover {
   opacity: 0.5;
 }
-
 
 .star-label {
   position: relative;
@@ -212,10 +211,6 @@ button:hover {
   }
   .star-label {
     display: block;
-  }
-  #countryImage {
-    min-width: 335px !important;
-    min-height: 200px !important;
   }
   .draggable:hover {
     opacity: 1;

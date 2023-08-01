@@ -1,17 +1,18 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
-import { deleteFromLocalStorage } from '../../js/localStorag';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
+import { deleteFromLocalStorage } from "../../js/localStorag";
+import "./favoriteCard.css";
 
-const CountryCard = ({ countries, handleRemove ,index}) => {
+const CountryCard = ({ countries, handleRemove, index }) => {
   const country = countries;
 
   const onRemove = () => {
     handleRemove(country);
-    deleteFromLocalStorage("country",country.name.common)
+    deleteFromLocalStorage("country", country.name.official);
   };
   return (
-    <div className={`col ${country.name.common}`}>
+    <div className={`col ${country.name.common} cardfavorite`}>
       <div className="d-flex pb-2 drag-source ps-3" name={country.name.common}>
         <img
           src={country.flags.png}

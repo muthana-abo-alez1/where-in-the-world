@@ -1,14 +1,14 @@
-:root{
-  --height-body:calc(100vh - 48px - var(--nav-height))
+:root {
+  --height-body: calc(100vh - 48px - var(--nav-height));
 }
-.container-body{
+.container-body {
   height: var(--height-body);
 }
-.items{
- height: calc(100% - var(--nav-height) - 50px);
+.items {
+  height: calc(100% - var(--nav-height) - 50px);
 }
 
-.card-container{
+.card-container {
   width: 1000px;
   min-width: 320px;
 }

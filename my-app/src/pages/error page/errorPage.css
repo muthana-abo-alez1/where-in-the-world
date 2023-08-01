@@ -1,0 +1,40 @@
+.error-page {
+  margin: 7rem 2rem 0rem 8rem;
+}
+
+.content-page {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content-page h1 {
+  padding-bottom: 7px;
+  color: cornflowerblue;
+  font-weight: 300;
+}
+
+.content-page h2 {
+  padding-bottom: 0.4rem;
+  font-weight: 400;
+}
+
+.home-btn {
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+.pic {
+  height: 15rem;
+}
+
+@media screen and (max-width: 765px) {
+  .pic {
+    display: none;
+  }
+
+  .content-page {
+    padding-top: 7rem;
+  }
+}

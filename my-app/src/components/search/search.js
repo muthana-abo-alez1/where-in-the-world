@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./search.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Search = ({ onFilter }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchChange = (event) => {
     const { value } = event.target;
@@ -14,7 +14,10 @@ const Search = ({ onFilter }) => {
 
   return (
     <div>
-      <label htmlFor="search" className="input-group flex-nowrap shadow-sm ps-4 mb-4 rounded d-flex justify-content-between align-items-center cursor-pointer gap-2">
+      <label
+        htmlFor="search"
+        className="input-group flex-nowrap shadow-sm ps-4 mb-4 rounded d-flex justify-content-between align-items-center cursor-pointer gap-2"
+      >
         <FontAwesomeIcon icon={faSearch} />
         <input
           type="text"

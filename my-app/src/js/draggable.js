@@ -1,4 +1,4 @@
-import { getItemFromLocalStorage, storeInLocalStorage } from "./localStorag.js";
+//import { getItemFromLocalStorage, storeInLocalStorage } from "./localStorag.js";
 
 let onFavoriteAdded = null;
 
@@ -51,10 +51,11 @@ async function drop(event) {
   event.target.classList.remove("droppable-hover");
   const draggableElementData = event.dataTransfer.getData("text/html");
   event.target.classList.remove("favorite-hover");
-  if (localStorage.getItem("country")?.includes(draggableElementData)) return[];
-  console.log(draggableElementData)
+  if (localStorage.getItem("country")?.includes(draggableElementData))
+    return [];
   if (onFavoriteAdded) {
     onFavoriteAdded(draggableElementData);
   }
+  //console.log("draggableElementData <meta http-equiv=>Northern Mariana Islands".split(">")[1])
   //storeInLocalStorage(draggableElementData);
 }
