@@ -1,0 +1,46 @@
+.information {
+  min-width: 300px;
+}
+
+.buttons {
+  min-width: 350px;
+}
+.dark-mode {
+  background-color: #202c37 !important;
+  color: #ffffff;
+  --main-color-white: var(--main-color--Dark-Blue);
+  --main-color-black: #ffffff;
+  --main-color-gray: #ffffff;
+}
+.dark {
+  color: var(--main-color-black);
+}
+#countryImage {
+  min-width: 550px;
+  min-height: 300px !important;
+  max-height: 360px;
+}
+
+.buttons button {
+  min-width: 110px;
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+}
+.buttons {
+  padding-left: 0 !important;
+  padding-bottom: 20px;
+}
+button:hover {
+  color: var(--main-color-black) !important;
+}
+
+.list-value {
+  font-weight: 300 !important;
+}
+
+@media (max-width: 778px) {
+  #countryImage {
+    min-width: 335px !important;
+    min-height: 200px !important;
+  }
+}

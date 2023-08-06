@@ -1,0 +1,13 @@
+.input-group {
+  width: 35vw !important;
+  height: 68px;
+  min-width: 340px;
+  background-color: var(--main-color-white);
+}
+.form-control {
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+}
+input::placeholder {
+  color: var(--main-color-gray) !important;
+}

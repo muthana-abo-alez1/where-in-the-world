@@ -1,0 +1,20 @@
+:root {
+  --nav-height: 80px;
+}
+.navbar {
+  min-width: 375px;
+  background-color: var(--main-color-white);
+  height: var(--nav-height);
+}
+nav .container {
+  background-color: var(--main-color-white);
+}
+nav h1 {
+  color: var(--main-color-black) !important;
+}
+nav input {
+  display: none;
+}
+nav .dark {
+  cursor: pointer;
+}

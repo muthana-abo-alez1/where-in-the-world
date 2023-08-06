@@ -1,0 +1,44 @@
+.custom-dropdown-toggle::after {
+  display: none;
+}
+li .dropdown-item {
+  color: var(--main-color-black);
+}
+.dropdown-menu {
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+}
+.dropdown button {
+  height: 68px;
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+}
+
+.dropdown .btn {
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+  min-width: 175px;
+}
+
+.custom-dropdown {
+  position: relative;
+}
+.custom-dropdown-toggle-container {
+  height: 68px !important;
+}
+.custom-dropdown-toggle {
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 1px solid #ced4da;
+}
+
+.custom-dropdown-menu {
+  min-width: 100%;
+}
+
+.faChevronDown {
+  position: absolute;
+  top: 40%;
+  right: 25px;
+  cursor: pointer;
+}
