@@ -1,0 +1,218 @@
+:root {
+  --main-color-white: #ffffff;
+  --main-color-fafa: #fafafa;
+  --main-color--Very-Dark-Blue: #202c37;
+  --main-color--Dark-Blue: #2b3945;
+  --main-color-black: #111517;
+  --main-color-gray: #6e7071;
+}
+body {
+  background-color: var(--main-color-fafa) !important ;
+  height: 100vh;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.w-35 {
+  width: 35% !important;
+}
+.min-h-75 {
+  min-height: 75vh;
+}
+.w-15 {
+  width: 15% !important;
+}
+.w-70 {
+  width: 70% !important;
+}
+.fa-circle-xmark {
+  color: var(--main-color-black);
+  cursor: pointer;
+}
+.fa-circle-xmark:hover {
+  color: red;
+}
+
+.star-label {
+  font-size: 150%;
+  color: var(--main-color-gray);
+  display: none;
+}
+.flag {
+  height: 180px !important;
+  width: 100% !important;
+  object-fit: cover;
+  min-height: 180px;
+}
+.min-h-100 {
+  min-height: 100%;
+}
+.information {
+  min-width: 300px;
+}
+.buttons {
+  min-width: 350px;
+}
+.buttons button {
+  min-width: 110px;
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+}
+.w-40 {
+  width: 40% !important;
+}
+.min-width-335 {
+  min-width: 335px;
+}
+.buttons {
+  padding-left: 0 !important;
+  padding-bottom: 20px;
+}
+.custom-select .fas.fa-chevron-down {
+  color: var(--main-color-black);
+}
+.dark-mode {
+  background-color: #202c37 !important;
+  color: #ffffff;
+  --main-color-white: var(--main-color--Dark-Blue);
+  --main-color-black: #ffffff;
+  --main-color-gray: #ffffff;
+}
+.dark {
+  color: var(--main-color-black);
+}
+.navbar {
+  min-width: 375px;
+  background-color: var(--main-color-white);
+}
+nav .container {
+  background-color: var(--main-color-white);
+}
+nav h1 {
+  color: var(--main-color-black) !important;
+}
+nav input {
+  display: none;
+}
+nav .dark {
+  cursor: pointer;
+}
+.card {
+  cursor: move;
+}
+.remove-element {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  height: 16px;
+}
+input::placeholder {
+  color: var(--main-color-gray) !important;
+}
+.custom-size {
+  max-height: 70vh;
+  overflow: auto;
+}
+#Countries {
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-color-gray);
+}
+#Countries::-webkit-scrollbar {
+  width: 12px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+#Countries::-webkit-scrollbar-track {
+  border: var(--main-color-gray) solid 1px;
+  background: var(--main-color-white);
+}
+
+#Countries::-webkit-scrollbar-thumb {
+  background-color: darkgray;
+  border-radius: 30px 30px 30px 30px;
+}
+.custom-size a {
+  background-color: var(--main-color-white);
+}
+.fa-arrow-left {
+  color: var(--main-color-black);
+}
+.custom-size a button {
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+}
+button:hover {
+  color: var(--main-color-black) !important;
+}
+.list-value {
+  font-weight: 300 !important;
+}
+.card {
+  min-width: 250px;
+  min-height: 320px;
+  background-color: var(--main-color-white);
+  max-height: 370px;
+}
+.fa-magnifying-glass {
+  color: var(--main-color-gray);
+}
+.col {
+  min-width: 300px;
+  max-width: 330px;
+}
+.fa-chevron-down {
+  color: var(--main-color-black);
+}
+.btn{
+  color: var(--main-color-black) !important;
+}
+.draggable {
+  cursor: move;
+}
+.draggable:hover {
+  opacity: 0.5;
+}
+
+.star-label {
+  position: relative;
+  font-size: xx-large;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  border-color: none;
+  margin-right: 10px;
+}
+
+@media (max-width: 991.9999px) {
+  .custom-size {
+    justify-content: center !important;
+    min-width: 375px;
+  }
+}
+@media (max-width: 1199px) {
+  .custom-size {
+    padding-left: 20px;
+  }
+  .col {
+    max-width: 320px !important ;
+  }
+}
+@media (max-width: 778px) {
+  .items {
+    display: flex;
+    flex-wrap: wrap !important;
+  }
+  .card {
+    max-height: 380px !important;
+  }
+  .custom-size {
+    padding-left: 20px;
+    max-height: 100vh;
+    overflow: "";
+  }
+  .star-label {
+    display: block;
+  }
+  .draggable:hover {
+    opacity: 1;
+  }
+}
