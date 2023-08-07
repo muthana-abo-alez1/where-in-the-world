@@ -24,13 +24,16 @@ function MoreDetails() {
   useEffect(() => {
     fetchCountryData();
   }, [fetchCountryData]);
-
+  function toBack(){
+    window.history.back();
+  }
   return (
     <div>
       <Header />
       <div className="container  min-width-335">
         <Link
-          to="/where-in-the-world/"
+        to="#"
+          onClick={toBack}
           className="btn shadow-sm ps-4 pe-4 pt-0 pb-0 mb-5"
           id="link"
         >
