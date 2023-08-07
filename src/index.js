@@ -11,8 +11,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="*" element={<ErrorPage />} />
-        <Route path="" element={<App />} />
-        <Route path="/moreDetails/:name" element={<MoreDetails />} />
+        <Route path="/where-in-the-world/" element={<App />} />
+        <Route path="/where-in-the-world/moreDetails/:name" element={<MoreDetails />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
