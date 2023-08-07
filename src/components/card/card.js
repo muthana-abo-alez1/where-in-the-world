@@ -38,7 +38,7 @@ const Card = ({
 
   return (
     <div className={`col ${name.official}`}>
-      <Link to={`/moreDetails/${name.official}`} className="link">
+      <Link to={`/where-in-the-world/moreDetails/${name.official}`} className="link">
         <div
           className="card draggable h-100 shadow-sm pb-4 m-0"
           draggable="true"
