@@ -1,4 +1,7 @@
+import { useState, useEffect } from "react";
+
 const baseApiUrl = "https://restcountries.com/v3.1/";
+
 export const getCountriesService = async () => {
   try {
     const response = await fetch(`${baseApiUrl}/all`);
@@ -6,12 +9,13 @@ export const getCountriesService = async () => {
     return countriesData;
   } catch (error) {
     console.error("Error fetching countries:", error);
+    alert("An error occurred while fetching countries. Please try again later.");
     return [];
   }
 };
 
 export const getCountrysByNameService = async (name) => {
-  if (name == null || name == "") return [];
+  if (name == null || name === "") return [];
   try {
     const response = await fetch(`${baseApiUrl}name/${name}`);
     if (response.status === 404) {
@@ -21,12 +25,13 @@ export const getCountrysByNameService = async (name) => {
     return countriesData;
   } catch (error) {
     console.log("Error:", error.message);
+    alert("An error occurred while fetching the country. Please try again later.");
     return [];
   }
 };
+
 export const getCountrysByNamesService = async (names) => {
   if (!Array.isArray(names) || names.length === 0) return [];
-
   try {
     const countriesData = [];
 
@@ -46,6 +51,7 @@ export const getCountrysByNamesService = async (names) => {
     return countriesData;
   } catch (error) {
     console.error("Error:", error.message);
+    alert("An error occurred while fetching countries. Please try again later.");
     return [];
   }
 };

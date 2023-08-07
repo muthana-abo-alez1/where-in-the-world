@@ -15,7 +15,7 @@
   min-height: 35px;
 }
 .custom-size-favorite {
-  min-height: fit-content;
+  min-height: 400px !important;
 }
 @media (max-width: 778px) {
   .favorite {

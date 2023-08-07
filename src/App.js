@@ -1,28 +1,34 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./components/header/header.js";
-import Search from "./components/search/search";
-import Filter from "./components/filter/filter";
-import CardList from "./components/CardList/cardList";
-import FavoriteList from "./components/favoriteList/favoriteList";
-import { getCountriesService } from "./services/api/countryService.js";
-import { droppable, setOnFavoriteAdded } from "./js/draggable.js";
-import { handleFavourites } from "./components/filter/filter";
-import { checkDarkMode } from "./js/darkMode.js";
+import Header from "./components/Header/Header.js";
+import Search from "./components/Search/Search";
+import Filter from "./components/Filter/Filter";
+import CardList from "./components/Card-List/CardList.js";
+import FavoriteList from "./components/Favorite-List/FavoriteList";
+import { getCountriesService } from "./services/Api/CountryService.js";
+import { droppable, setOnFavoriteAdded } from "./js/Draggable.js";
+import { handleFavourites } from "./components/Filter/Filter";
+import { checkDarkMode } from "./js/DarkMode.js";
+import Loading from "../src/components/Loading/Loading.js";
+
 function App() {
   const [countriesData, setCountriesData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [selectedRegion, setSelectedRegion] = useState("Filter by Region");
   const [favorites, setFavorites] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await getCountriesService();
         setCountriesData(data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
+        alert("An error occurred while fetching data. Please try again later.");
+        setLoading(false);
       }
     }
     fetchData();
@@ -31,6 +37,7 @@ function App() {
   const handleRegionFilter = (region) => {
     setSelectedRegion(region);
   };
+
   useEffect(() => {
     var filteredCountriesData;
     async function filter() {
@@ -48,8 +55,8 @@ function App() {
       setFilteredCountries(filteredCountriesData);
     }
     filter();
-    setFilteredCountries(filteredCountriesData);
   }, [searchQuery, selectedRegion, countriesData]);
+
   useEffect(() => {
     droppable();
     setOnFavoriteAdded((favoriteName) => {
@@ -58,6 +65,7 @@ function App() {
   }, []);
 
   droppable();
+
   return (
     <div className="App">
       <Header />
@@ -69,7 +77,7 @@ function App() {
         <div className="d-flex justify-content-between items gap-3">
           <FavoriteList favorites={favorites} />
           <div className="card-container row g-4 custom-size" id="Countries">
-            <CardList countries={filteredCountries} />
+            {loading ? <Loading /> : <CardList countries={filteredCountries} />}
           </div>
         </div>
       </div>

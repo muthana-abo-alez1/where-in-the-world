@@ -4,8 +4,9 @@ import {
   deleteFromLocalStorage,
   storeInLocalStorage,
   getItemFromLocalStorage,
-} from "../../js/localStorag";
-import "./card.css";
+} from "../../js/LocalStorag";
+import "./Card.css";
+
 const Card = ({
   name,
   flags,
@@ -19,10 +20,11 @@ const Card = ({
 
   useEffect(() => {
     const favoriteCountries = getItemFromLocalStorage("country");
-    setIsFavorite(favoriteCountries.includes(name.common));
+    setIsFavorite(favoriteCountries.includes(name.official));
   }, [name.common]);
 
   const handleFavoriteChange = (e) => {
+    e.preventDefault(); 
     const isChecked = e.target.checked;
     setIsFavorite(isChecked);
     onFavoriteChange(isChecked);

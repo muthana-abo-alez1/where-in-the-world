@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./header.css";
+import "./Header.css";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 function Header() {
   const [isChecked, setIsChecked] = useState(false);

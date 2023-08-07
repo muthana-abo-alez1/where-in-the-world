@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./favoriteList.css";
-import FavoriteCard from "../favoriteCard/favoriteCard.js";
-import { fetchFavoriteData } from "../../services/api/helperService";
-import { getCountrysByNameService } from "../../services/api/countryService";
-import { storeInLocalStorage } from "../../js/localStorag";
+import "./FavoriteList.css";
+import FavoriteCard from "../Favorite-Card/FavoriteCard.js";
+import { fetchFavoriteData } from "../../services/Api/HelperService";
+import { getCountrysByNameService } from "../../services/Api/CountryService";
+import { storeInLocalStorage } from "../../js/LocalStorag";
 
 function FavoriteList({ favorites }) {
   const [data, setData] = useState([]);
@@ -19,9 +19,10 @@ function FavoriteList({ favorites }) {
         storeInLocalStorage(favorites);
       } catch (error) {
         console.error("Error fetching data:", error);
+        alert("An error occurred while fetching data. Please try again later.");
       }
     }
-
+  
     getData();
   }, [favorites]);
   const handleRemove = (country) => {

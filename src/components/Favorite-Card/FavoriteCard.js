@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
-import { deleteFromLocalStorage } from "../../js/localStorag";
-import "./favoriteCard.css";
+import { deleteFromLocalStorage } from "../../js/LocalStorag";
+import "./FavoriteCard.css";
 
 const CountryCard = ({ countries, handleRemove, index }) => {
   const country = countries;

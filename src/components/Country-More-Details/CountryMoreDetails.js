@@ -1,5 +1,5 @@
 import React from "react";
-import "./CountrymoreDetails.css";
+import "./CountryMoreDetails.css";
 
 function CountrymoreDetails({ country }) {
   const borderCountries = country.borders;

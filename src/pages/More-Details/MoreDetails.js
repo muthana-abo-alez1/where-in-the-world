@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
-import Header from "../../components/header/header.js";
+import Header from "../../components/Header/Header.js";
 import { useParams, Link } from "react-router-dom";
-import { getCountrysByNameService } from "../../services/api/countryService.js";
+import { getCountrysByNameService } from "../../services/Api/CountryService.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import CountrymoreDetails from "../../components/CountrymoreDetails/CountrymoreDetails.js";
+import CountrymoreDetails from "../../components/Country-More-Details/CountryMoreDetails.js";
 
 function MoreDetails() {
   const params = useParams();
@@ -17,6 +17,7 @@ function MoreDetails() {
       setCountry(countryData);
     } catch (error) {
       console.error("Error fetching country data:", error);
+      alert("An error occurred while fetching the country data. Please try again later.");
     }
   }, [name]);
 

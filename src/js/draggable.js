@@ -1,5 +1,3 @@
-//import { getItemFromLocalStorage, storeInLocalStorage } from "./localStorag.js";
-
 let onFavoriteAdded = null;
 
 export function setOnFavoriteAdded(callback) {
@@ -56,6 +54,4 @@ async function drop(event) {
   if (onFavoriteAdded) {
     onFavoriteAdded(draggableElementData);
   }
-  //console.log("draggableElementData <meta http-equiv=>Northern Mariana Islands".split(">")[1])
-  //storeInLocalStorage(draggableElementData);
 }

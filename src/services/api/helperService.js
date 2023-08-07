@@ -1,5 +1,5 @@
-import { getCountrysByNamesService } from "../../services/api/countryService.js";
-import { getItemFromLocalStorage } from "../../js/localStorag";
+import { getCountrysByNamesService } from "./CountryService.js";
+import { getItemFromLocalStorage } from "../../js/LocalStorag.js";
 
 export async function fetchFavoriteData() {
   const item = await getItemFromLocalStorage("country");

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import "./filter.css";
+import "./Filter.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { fetchFavoriteData } from "../../services/api/helperService";
+import { fetchFavoriteData } from "../../services/Api/HelperService";
 export const handleFavourites = async () => {
   const countries = await fetchFavoriteData();
-  //console.log
   return countries;
 };
 
