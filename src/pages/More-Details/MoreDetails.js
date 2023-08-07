@@ -30,7 +30,7 @@ function MoreDetails() {
       <Header />
       <div className="container  min-width-335">
         <Link
-          to="../"
+          to="/where-in-the-world/"
           className="btn shadow-sm ps-4 pe-4 pt-0 pb-0 mb-5"
           id="link"
         >
