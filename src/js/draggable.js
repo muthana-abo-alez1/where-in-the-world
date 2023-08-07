@@ -7,7 +7,7 @@ export function setOnFavoriteAdded(callback) {
 export function droppable() {
   const draggableElements = document.querySelectorAll(".draggable");
   const droppableElements = document.getElementById("favorite");
-
+  console.log(draggableElements)
   draggableElements.forEach((elem) => {
     elem.addEventListener("dragstart", dragStart);
     droppableElements.addEventListener("dragenter", dragEnter);

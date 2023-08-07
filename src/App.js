@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import "./App.css";
 import Header from "./components/Header/Header.js";
 import Search from "./components/Search/Search";
@@ -18,6 +18,7 @@ function App() {
   const [selectedRegion, setSelectedRegion] = useState("Filter by Region");
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
+  const cardListRef = useRef(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -58,13 +59,17 @@ function App() {
   }, [searchQuery, selectedRegion, countriesData]);
 
   useEffect(() => {
-    droppable();
     setOnFavoriteAdded((favoriteName) => {
       setFavorites(favoriteName);
     });
   }, []);
 
-  droppable();
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      droppable();
+    }, 400);
+    
+  }, []);
 
   return (
     <div className="App">
@@ -76,7 +81,11 @@ function App() {
         </div>
         <div className="d-flex justify-content-between items gap-3">
           <FavoriteList favorites={favorites} />
-          <div className="card-container row g-4 custom-size" id="Countries">
+          <div
+            ref={cardListRef}
+            className="card-container row g-4 custom-size"
+            id="Countries"
+          >
             {loading ? <Loading /> : <CardList countries={filteredCountries} />}
           </div>
         </div>
