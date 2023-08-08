@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom"; 
 import {
   deleteFromLocalStorage,
   storeInLocalStorage,
@@ -17,6 +16,8 @@ const Card = ({
   capital,
   onFavoriteChange,
 }) => {
+  const navigate = useNavigate();
+
   const [isFavorite, setIsFavorite] = useState(false);
   useEffect(() => {
     const favoriteCountries = getItemFromLocalStorage("country");
@@ -36,7 +37,7 @@ const Card = ({
   };
   function toMoreDetails(event) {
     if (event.target.id !== "star"  && event.target.type !== "checkbox") {
-      window.location.href = `/where-in-the-world/moreDetails/${name.official}`;
+      navigate(`/where-in-the-world/moreDetails/${name.official}`);
     }
   }
   return (
