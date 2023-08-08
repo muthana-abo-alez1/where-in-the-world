@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Header from "./components/Header/Header.js";
 import Search from "./components/Search/Search";
@@ -32,29 +32,30 @@ function App() {
         setLoading(false);
       }
     }
-    fetchData().then(()=>{
-      droppable();
-    })
-  }, [])
+    fetchData().then(() => {
+      setLoading(false);
+    });
+  }, []);
 
   const handleRegionFilter = (region) => {
     setSelectedRegion(region);
   };
 
   useEffect(() => {
-    var filteredCountriesData;
     async function filter() {
-      filteredCountriesData = countriesData.filter((country) => {
+      let filteredCountriesData = countriesData.filter((country) => {
         const matchesQuery = country.name.common
           .toLowerCase()
           .includes(searchQuery.toLowerCase());
-        var matchesRegion =
-          selectedRegion === "Filter by Region" ||
-          country.region === selectedRegion;
+        const matchesRegion =
+          selectedRegion === "Filter by Region" || country.region === selectedRegion;
         return matchesQuery && matchesRegion;
       });
-      if (selectedRegion === "Favourites")
+
+      if (selectedRegion === "Favourites") {
         filteredCountriesData = await handleFavourites();
+      }
+
       setFilteredCountries(filteredCountriesData);
     }
     filter();
@@ -66,12 +67,13 @@ function App() {
     });
   }, []);
 
-  useLayoutEffect(() => {
-    setTimeout(() => {
-      droppable();
-    }, 400);
-    
-  }, []);
+  useEffect(() => {
+    if (cardListRef.current) {
+      setTimeout(() => {
+        droppable();
+      }, 500);
+    }
+  }, [cardListRef.current]);
 
   return (
     <div className="App">
