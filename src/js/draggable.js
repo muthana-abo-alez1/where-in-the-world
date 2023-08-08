@@ -7,7 +7,6 @@ export function setOnFavoriteAdded(callback) {
 export function droppable() {
   const draggableElements = document.querySelectorAll(".draggable");
   const droppableElements = document.getElementById("favorite");
-  console.log(draggableElements)
   draggableElements.forEach((elem) => {
     elem.addEventListener("dragstart", dragStart);
     droppableElements.addEventListener("dragenter", dragEnter);
@@ -18,10 +17,9 @@ export function droppable() {
 }
 
 function dragStart(event) {
-  event.dataTransfer.setData("text/plain", event.target.id);
   event.dataTransfer.setData(
-    "text/html",
-    event.target.getAttribute("data-draggable-id")
+    "html",
+    event.target.getAttribute("id")
   );
 }
 
@@ -47,7 +45,8 @@ function dragLeave(event) {
 async function drop(event) {
   event.preventDefault();
   event.target.classList.remove("droppable-hover");
-  const draggableElementData = event.dataTransfer.getData("text/html");
+  const draggableElementData = event.dataTransfer.getData("html");
+  console.log(draggableElementData)
   event.target.classList.remove("favorite-hover");
   if (localStorage.getItem("country")?.includes(draggableElementData))
     return [];

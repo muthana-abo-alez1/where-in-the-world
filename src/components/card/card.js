@@ -43,17 +43,17 @@ const Card = ({
           className="card draggable h-100 shadow-sm pb-4 m-0"
           draggable="true"
           data-draggable-id={name.official}
-          id={`card-${count}`}
+          id={name.official}
         >
           <img
             src={flags.png}
             className="card-img-top flag"
             alt="Error in image"
-            draggable="true"
+            draggable="false"
             data-draggable-id={name.official}
           />
           <div className="card-body">
-            <h5 className="card-title fw-bold pt-2">{name.official}</h5>
+            <h5 className="card-title fw-bold pt-2">{name.common}</h5>
             <ul className="list-group list-group-flush list-unstyled fw-500 pt-2">
               <li className="">
                 Population:
