@@ -32,8 +32,10 @@ function App() {
         setLoading(false);
       }
     }
-    fetchData();
-  }, []);
+    fetchData().then(()=>{
+      droppable();
+    })
+  }, [])
 
   const handleRegionFilter = (region) => {
     setSelectedRegion(region);

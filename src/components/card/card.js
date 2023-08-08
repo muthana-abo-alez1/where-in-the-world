@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import {
   deleteFromLocalStorage,
   storeInLocalStorage,
@@ -17,7 +18,6 @@ const Card = ({
   onFavoriteChange,
 }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-
   useEffect(() => {
     const favoriteCountries = getItemFromLocalStorage("country");
     setIsFavorite(favoriteCountries.includes(name.official));
@@ -26,6 +26,7 @@ const Card = ({
   const handleFavoriteChange = (e) => {
     e.preventDefault(); 
     const isChecked = e.target.checked;
+    console.log(isChecked)
     setIsFavorite(isChecked);
     onFavoriteChange(isChecked);
 
@@ -35,10 +36,15 @@ const Card = ({
       deleteFromLocalStorage("country", name.official);
     }
   };
-
+  function toMoreDetails(event) {
+    if (event.target.id !== "star") {
+      return (
+        <Link to={`/where-in-the-world/moreDetails/${name.official}`} />
+      );
+    }
+  }
   return (
-    <div className={`col ${name.official}`}>
-      <Link to={`/where-in-the-world/moreDetails/${name.official}`} className="link">
+    <div className={`col ${name.official}`} onClick={toMoreDetails}>
         <div
           className="card draggable h-100 shadow-sm pb-4 m-0"
           draggable="true"
@@ -81,13 +87,13 @@ const Card = ({
             />
             <label
               htmlFor={`add-favorite-${count}`}
-              className={`star-label star ${isFavorite ? "orange" : ""}`}
+              id="star"
+              className={`star-label star pe-2 ${isFavorite ? "orange" : ""}` }
             >
               &#9733;
             </label>
           </div>
         </div>
-      </Link>
     </div>
   );
 };

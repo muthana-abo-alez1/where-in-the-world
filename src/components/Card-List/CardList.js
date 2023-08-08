@@ -13,6 +13,7 @@ const CardList = ({ countries }) => {
           population={card.population.toLocaleString()}
           region={card.region}
           capital={card.capital}
+          onFavoriteChange={(isChecked) => {}}
         />
       ))}
     </>

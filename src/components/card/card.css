@@ -1,5 +1,5 @@
 .star-label {
-  font-size: 150%;
+  font-size: 180%;
   color: var(--main-color-gray);
   display: none;
 }
@@ -72,7 +72,7 @@ button:hover {
 .star.orange {
   color: orange;
 }
-@media (max-width: 991.9999px) {
+@media (max-width: 992px) {
   .custom-size {
     justify-content: center !important;
     min-width: 375px;
@@ -109,4 +109,7 @@ button:hover {
   .draggable:hover {
     opacity: 1;
   }
+  .draggable:hover {
+  transform: none; 
+}
 }
