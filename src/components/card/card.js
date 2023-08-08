@@ -37,7 +37,7 @@ const Card = ({
   
   function toMoreDetails(event) {
     if (event.target.id !== "star"  &&  event.target.type !== "checkbox") {
-      window.location.href = `/where-in-the-world/moreDetails/${name.official}`;
+      window.location.href = `/moreDetails/${name.official}`;
     }
   }
   return (

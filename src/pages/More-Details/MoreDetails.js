@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import React, { useEffect, useState,  useCallback } from "react";
 import Header from "../../components/Header/Header.js";
 import { useParams, Link } from "react-router-dom";
 import { getCountrysByNameService } from "../../services/Api/CountryService.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import CountrymoreDetails from "../../components/Country-More-Details/CountryMoreDetails.js";
-
+import "./MoreDetails.css"
 function MoreDetails() {
   const params = useParams();
   const { name } = params;

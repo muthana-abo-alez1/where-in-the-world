@@ -32,9 +32,7 @@ function App() {
         setLoading(false);
       }
     }
-    fetchData().then(() => {
-      setLoading(false);
-    });
+    fetchData();
   }, []);
 
   const handleRegionFilter = (region) => {
@@ -69,11 +67,9 @@ function App() {
 
   useEffect(() => {
     if (cardListRef.current) {
-      setTimeout(() => {
-        droppable();
-      }, 500);
+      droppable();
     }
-  }, [cardListRef.current]);
+  }, [filteredCountries]);
 
   return (
     <div className="App">

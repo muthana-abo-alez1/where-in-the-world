@@ -1,0 +1,15 @@
+:root {
+  --main-color-white: #ffffff;
+  --main-color-fafa: #fafafa;
+  --main-color--Very-Dark-Blue: #202c37;
+  --main-color--Dark-Blue: #2b3945;
+  --main-color-black: #111517;
+  --main-color-gray: #6e7071;
+}
+.btn {
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+}
+.btn:hover {
+  color: var(--main-color-black) !important;
+}
