@@ -45,7 +45,7 @@ function dragLeave(event) {
 async function drop(event) {
   event.preventDefault();
   event.target.classList.remove("droppable-hover");
-  const draggableElementData = event.dataTransfer.getData("text/plain"); 
+  const draggableElementData = event.dataTransfer.getData("html"); 
   console.log(draggableElementData);
   event.target.classList.remove("favorite-hover");
   if (localStorage.getItem("country")?.includes(draggableElementData))
