@@ -9,6 +9,8 @@
 .btn {
   background-color: var(--main-color-white);
   color: var(--main-color-black);
+  outline: none; 
+  box-shadow: none;
 }
 .btn:hover {
   color: var(--main-color-black) !important;
