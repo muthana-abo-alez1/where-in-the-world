@@ -24,23 +24,20 @@ const Card = ({
   }, [name.common]);
 
   const handleFavoriteChange = (e) => {
-    e.preventDefault(); 
     const isChecked = e.target.checked;
-    console.log(isChecked)
     setIsFavorite(isChecked);
     onFavoriteChange(isChecked);
-
+  
     if (isChecked) {
       storeInLocalStorage(name.official);
     } else {
       deleteFromLocalStorage("country", name.official);
     }
   };
+  
   function toMoreDetails(event) {
-    if (event.target.id !== "star") {
-      return (
-        <Link to={`/where-in-the-world/moreDetails/${name.official}`} />
-      );
+    if (event.target.id !== "star"  &&  event.target.type !== "checkbox") {
+      window.location.href = `/where-in-the-world/moreDetails/${name.official}`;
     }
   }
   return (
