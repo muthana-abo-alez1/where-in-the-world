@@ -5,6 +5,7 @@ import { getCountrysByNameService } from "../../services/Api/CountryService.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import CountrymoreDetails from "../../components/Country-More-Details/CountryMoreDetails.js";
+import { checkDarkMode } from "../../js/DarkMode.js";
 import "./MoreDetails.css"
 function MoreDetails() {
   const params = useParams();
