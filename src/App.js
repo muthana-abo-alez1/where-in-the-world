@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./components/Header/Header.js";
-import Search from "./components/Search/Search";
-import Filter from "./components/Filter/Filter";
+import Header from "./components/header/header.js";
+import Search from "./components/search/search";
+import Filter from "./components/filter/filter";
 import CardList from "./components/Card-List/CardList.js";
 import FavoriteList from "./components/Favorite-List/FavoriteList";
-import { checkDarkMode } from "./js/DarkMode.js";
+import { checkDarkMode } from "./js/darkMode.js";
 import Loading from "../src/components/Loading/Loading.js";
 import CountrySearchContextProvider from "./contexts/CountrySearchContext";
 import useFetchData from "./Hooks/FetchDataHook";

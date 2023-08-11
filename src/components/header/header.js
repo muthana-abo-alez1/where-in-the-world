@@ -1,10 +1,9 @@
 import React, {  useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Header.css";
+import "./header.css";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
-import { getItemFromLocalStorage } from "../../js/LocalStorag";
 function Header() {
-  const [isChecked, setIsChecked] = useState(getItemFromLocalStorage("dark")? true : false );
+  const [isChecked, setIsChecked] = useState(false);
   function dark_mode(flag) {
     let element = document.body;
     if (flag) {

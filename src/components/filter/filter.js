@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import "./Filter.css";
+import "./filter.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { fetchFavoriteData } from "../../services/Api/HelperService";
+import { fetchFavoriteData } from "../../services/api/helperService";
 import { CountrySearchContext } from "../../contexts/CountrySearchContext";
 
 

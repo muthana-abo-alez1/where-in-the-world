@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getCountriesService } from "../services/Api/CountryService";
+import { getCountriesService } from "../services/api/countryService";
 
 
 function useFetchData() {

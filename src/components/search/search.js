@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "./Search.css";
+import "./search.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { CountrySearchContext } from "../../contexts/CountrySearchContext";

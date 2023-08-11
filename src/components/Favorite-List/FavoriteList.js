@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import FavoriteCard from "../Favorite-Card/FavoriteCard.js";
-import { setOnFavoriteAdded } from "../../js/Draggable.js";
+import { setOnFavoriteAdded } from "../../js/draggable.js";
 import "./FavoriteList.css";
-import { storeInLocalStorage } from "../../js/LocalStorag.js";
+import { storeInLocalStorage } from "../../js/localStorag.js";
 import { useLocalStorage } from "../../Hooks/useLocalStorage.js";
 
 function FavoriteList() {

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import Card from "../Card/Card.js";
+import Card from "../card/Card.js";
 import { CountrySearchContext } from "../../contexts/CountrySearchContext.jsx";
-import { fetchFavoriteData } from "../../services/Api/HelperService.js";
-import { droppable} from "../../js/Draggable.js";
+import { fetchFavoriteData } from "../../services/api/helperService.js";
+import { droppable} from "../../js/draggable.js";
 
 
 

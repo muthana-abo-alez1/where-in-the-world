@@ -4,8 +4,8 @@ import {
   deleteFromLocalStorage,
   storeInLocalStorage,
   getItemFromLocalStorage,
-} from "../../js/LocalStorag";
-import "./Card.css";
+} from "../../js/localStorag";
+import "./card.css";
 
 const Card = ({
   name,
