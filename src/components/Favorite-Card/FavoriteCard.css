@@ -17,6 +17,3 @@
 .fa-circle-xmark:hover {
   color: red;
 }
-.cardfavorite:hover {
-  transform: scaley(1.1);
-}

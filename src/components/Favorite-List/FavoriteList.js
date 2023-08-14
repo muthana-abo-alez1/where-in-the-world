@@ -1,41 +1,31 @@
-import React, { useEffect, useState } from "react";
-import "./FavoriteList.css";
+import React, { useEffect, useRef } from "react";
 import FavoriteCard from "../Favorite-Card/FavoriteCard.js";
-import { fetchFavoriteData } from "../../services/Api/HelperService";
-import { getCountrysByNameService } from "../../services/Api/CountryService";
-import { storeInLocalStorage } from "../../js/LocalStorag";
+import { setOnFavoriteAdded } from "../../js/draggable.js";
+import "./FavoriteList.css";
+import { storeInLocalStorage } from "../../js/localStorag.js";
+import { useLocalStorage } from "../../Hooks/useLocalStorage.js";
 
-function FavoriteList({ favorites }) {
-  const [data, setData] = useState([]);
+function FavoriteList() {
+  const [data, setData] = useLocalStorage("country", []);
   useEffect(() => {
-    async function getData() {
-      try {
-        const favoriteData = await fetchFavoriteData();
-        setData(favoriteData);
-        if (favorites.length > 0) {
-          const countryData = await getCountrysByNameService(favorites);
-          setData((favoriteData) => [...favoriteData, ...countryData]);
-        }
-        storeInLocalStorage(favorites);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        alert("An error occurred while fetching data. Please try again later.");
-      }
-    }
-  
-    getData();
-  }, [favorites]);
+    setOnFavoriteAdded(({ id, url }) => {
+      setData((prevData) => [...prevData, { id, url }]);
+      storeInLocalStorage({ id, url });
+    });
+  }, [setData]);
+
   const handleRemove = (country) => {
-    setData((prevData) => prevData.filter((item) => item !== country));
+    setData((prevData) => prevData.filter((item) => item.id !== country.id));
   };
 
   return (
     <>
       <div
-        className="favorite col-3 custom-size-favorite shadow-sm"
+        className="favorite col-3 custom-size-favorite shadow-sm "
         id="favorite"
       >
-        <h3 className="fw-bold pt-3 ps-3">favorites</h3>
+        <h3 className="fw-bold pt-3 ps-3 pb-2">favorites</h3>
+        <div id="list-favorite">
         {data.map((card, index) => (
           <FavoriteCard
             key={index}
@@ -43,6 +33,7 @@ function FavoriteList({ favorites }) {
             handleRemove={handleRemove}
           />
         ))}
+        </div>
       </div>
     </>
   );

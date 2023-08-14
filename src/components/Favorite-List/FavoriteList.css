@@ -17,6 +17,27 @@
 .custom-size-favorite {
   min-height: 400px !important;
 }
+#list-favorite{
+  overflow: auto;
+  max-height: 350px !important;
+}
+#list-favorite {
+  scrollbar-width: thin;
+  scrollbar-color: var(--main-color-gray);
+}
+#list-favorite::-webkit-scrollbar {
+  width: 12px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+#list-favorite::-webkit-scrollbar-track {
+  border: var(--main-color-gray) solid 1px;
+  background: var(--main-color-white);
+}
+
+#list-favorite::-webkit-scrollbar-thumb {
+  background-color: darkgray;
+  border-radius: 30px 30px 30px 30px;
+}
 @media (max-width: 778px) {
   .favorite {
     display: none;
