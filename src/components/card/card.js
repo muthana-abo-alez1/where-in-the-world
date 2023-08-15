@@ -20,8 +20,15 @@ const Card = ({
 
   const [isFavorite, setIsFavorite] = useState(false);
   useEffect(() => {
-    const favoriteCountries = getItemFromLocalStorage("country");
-    setIsFavorite(favoriteCountries.includes(name.official));
+    const storedFavorites = JSON.parse(localStorage.getItem("country")) || [];
+    console.log(storedFavorites);
+    
+    if (storedFavorites.some((favorite) => favorite.id === name.common)) {
+      setIsFavorite(true);
+    }
+  
+    return () => {
+    };
   }, [name.common]);
 
   const handleFavoriteChange = (e) => {

@@ -11,6 +11,7 @@
 }
 li .dropdown-item {
   color: var(--main-color-black);
+  z-index: 1000;
 }
 .dropdown-menu {
   background-color: var(--main-color-white);
