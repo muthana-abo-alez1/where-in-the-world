@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/where-in-the-world/static/css/main.c490683b.css",
-    "main.js": "/where-in-the-world/static/js/main.57394e64.js",
+    "main.js": "/where-in-the-world/static/js/main.85426341.js",
     "static/js/787.28cb0dcd.chunk.js": "/where-in-the-world/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/where-in-the-world/index.html",
     "main.c490683b.css.map": "/where-in-the-world/static/css/main.c490683b.css.map",
-    "main.57394e64.js.map": "/where-in-the-world/static/js/main.57394e64.js.map",
+    "main.85426341.js.map": "/where-in-the-world/static/js/main.85426341.js.map",
     "787.28cb0dcd.chunk.js.map": "/where-in-the-world/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c490683b.css",
-    "static/js/main.57394e64.js"
+    "static/js/main.85426341.js"
   ]
 }
