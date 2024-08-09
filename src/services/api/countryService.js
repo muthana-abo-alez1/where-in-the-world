@@ -3,7 +3,7 @@ const baseApiUrl = "https://restcountries.com/v3.1/";
 export const getCountriesService = async () => {
   try {
 
-    const response = await fetch(`${baseApiUrl}all`);
+    const response = await fetch(`${baseApiUrl}all`)//
     const countriesData = await response.json();
     return countriesData;
 
