@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 function Header() {
   const [isChecked, setIsChecked] = useState(false);
-
   function dark_mode(flag) {
     let element = document.body;
     if (flag) {
@@ -14,7 +13,6 @@ function Header() {
     }
     localStorage.setItem("dark", flag);
   }
-
   const handleDarkModeToggle = () => {
     setIsChecked(!isChecked);
     dark_mode(!isChecked);

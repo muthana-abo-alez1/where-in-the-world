@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./errorPage.css";
+import "./ErrorPage.css";
 
 const ErrorPage = () => {
   return (
@@ -7,20 +7,16 @@ const ErrorPage = () => {
       <div className="row error-page">
         <div className="col-md-6">
           <div className="content-page">
-            <h1 className="content-title text-uppercase">Storify</h1>
+            <h1 className="content-title text-uppercase">Where in the world</h1>
             <h2>Page Note Found</h2>
             <p>
               <span className="text-danger">Sorry</span>, The page you’re
               looking for doesn’t exist.
             </p>
-            <Link to="/dashboard">
+            <Link to="../">
               {" "}
               <button
                 className="btn btn-primary home-btn"
-                style={{
-                  backgroundColor: "var(--dark)",
-                  borderColor: "var(--dark)",
-                }}
               >
                 Go Home
               </button>

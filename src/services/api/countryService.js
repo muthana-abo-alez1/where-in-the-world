@@ -1,17 +1,24 @@
 const baseApiUrl = "https://restcountries.com/v3.1/";
+
 export const getCountriesService = async () => {
   try {
+
     const response = await fetch(`${baseApiUrl}all`);
+
     const countriesData = await response.json();
     return countriesData;
+
   } catch (error) {
     console.error("Error fetching countries:", error);
+    alert(
+      "An error occurred while fetching countries. Please try again later."
+    );
     return [];
   }
 };
 
 export const getCountrysByNameService = async (name) => {
-  if (name == null || name == "") return [];
+  if (name == null || name === "") return [];
   try {
     const response = await fetch(`${baseApiUrl}name/${name}`);
     if (response.status === 404) {
@@ -21,15 +28,17 @@ export const getCountrysByNameService = async (name) => {
     return countriesData;
   } catch (error) {
     console.log("Error:", error.message);
+    alert(
+      "An error occurred while fetching the country. Please try again later."
+    );
     return [];
   }
 };
+
 export const getCountrysByNamesService = async (names) => {
   if (!Array.isArray(names) || names.length === 0) return [];
-
   try {
     const countriesData = [];
-
     for (const name of names) {
       if (name == null || name === "") continue;
 
@@ -42,10 +51,12 @@ export const getCountrysByNamesService = async (names) => {
       const countryData = await response.json();
       countriesData.push(...countryData);
     }
-
     return countriesData;
   } catch (error) {
     console.error("Error:", error.message);
+    alert(
+      "An error occurred while fetching countries. Please try again later."
+    );
     return [];
   }
 };

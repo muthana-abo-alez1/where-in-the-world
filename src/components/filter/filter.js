@@ -1,20 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./filter.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { fetchFavoriteData } from "../../services/api/helperService";
-export const handleFavourites = async () => {
-  const countries = await fetchFavoriteData();
-  //console.log
-  return countries;
-};
+import { CountrySearchContext } from "../../contexts/CountrySearchContext";
 
-function Filter({ onRegionFilter }) {
+
+function Filter() {
   const [selectedRegion, setSelectedRegion] = useState("Filter by");
 
+  const { searchQuery, setSearchQuery } = useContext(CountrySearchContext);
+
+
   const handleRegionSelect = (region) => {
+    // Context
+    setSearchQuery({ ...searchQuery, ["filterValue"]: region });
+
+    // this is not needed
     setSelectedRegion(region);
-    onRegionFilter(region);
+  
   };
   return (
     <div>

@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./search.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { CountrySearchContext } from "../../contexts/CountrySearchContext";
 
-const Search = ({ onFilter }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+const Search = () => {
+  const [debounceTimeout, setDebounceTimeout] = useState(null);
+
+  const { searchQuery, setSearchQuery } = useContext(CountrySearchContext);
 
   const handleSearchChange = (event) => {
-    const { value } = event.target;
-    setSearchQuery(value);
-    onFilter(value);
+    const inputValue = event.target.value;
+
+    // Clear the previous debounce timeout
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout);
+    }
+
+    // Set a new debounce timeout
+    const newTimeout = setTimeout(() => {
+      setSearchQuery({ ...searchQuery, ["searchValue"]: inputValue });
+    }, 300);
+
+    setDebounceTimeout(newTimeout);
   };
 
   return (
@@ -26,7 +39,6 @@ const Search = ({ onFilter }) => {
           placeholder="Search for a country..."
           aria-label="Search for a country..."
           aria-describedby="addon-wrapping"
-          value={searchQuery}
           onChange={handleSearchChange}
         />
       </label>

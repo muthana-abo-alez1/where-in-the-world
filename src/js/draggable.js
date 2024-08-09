@@ -1,5 +1,3 @@
-//import { getItemFromLocalStorage, storeInLocalStorage } from "./localStorag.js";
-
 let onFavoriteAdded = null;
 
 export function setOnFavoriteAdded(callback) {
@@ -9,7 +7,6 @@ export function setOnFavoriteAdded(callback) {
 export function droppable() {
   const draggableElements = document.querySelectorAll(".draggable");
   const droppableElements = document.getElementById("favorite");
-
   draggableElements.forEach((elem) => {
     elem.addEventListener("dragstart", dragStart);
     droppableElements.addEventListener("dragenter", dragEnter);
@@ -20,11 +17,15 @@ export function droppable() {
 }
 
 function dragStart(event) {
-  event.dataTransfer.setData("text/plain", event.target.id);
-  event.dataTransfer.setData(
-    "text/html",
-    event.target.getAttribute("data-draggable-id")
-  );
+  const id = event.target.getAttribute("id");
+  const url = event.target.getAttribute("url");
+
+  const dragData = {
+    id,
+    url,
+  };
+
+  event.dataTransfer.setData("application/json", JSON.stringify(dragData));
 }
 
 function dragEnter(event) {
@@ -49,13 +50,28 @@ function dragLeave(event) {
 async function drop(event) {
   event.preventDefault();
   event.target.classList.remove("droppable-hover");
-  const draggableElementData = event.dataTransfer.getData("text/html");
-  event.target.classList.remove("favorite-hover");
-  if (localStorage.getItem("country")?.includes(draggableElementData))
-    return [];
-  if (onFavoriteAdded) {
-    onFavoriteAdded(draggableElementData);
+
+  const dataTransferString = event.dataTransfer.getData("application/json");
+  try {
+    event.target.classList.remove("favorite-hover");
+
+    if (dataTransferString == "") return;
+    const draggableElementData = JSON.parse(dataTransferString);
+
+    const storedFavorites = JSON.parse(localStorage.getItem("country")) || [];
+
+    if (
+      storedFavorites.some(
+        (favorite) => favorite.id === draggableElementData.id
+      )
+    ) {
+      return;
+    }
+
+    if (onFavoriteAdded) {
+      onFavoriteAdded(draggableElementData);
+    }
+  } catch (error) {
+    console.error("Error parsing dropped data:", error);
   }
-  //console.log("draggableElementData <meta http-equiv=>Northern Mariana Islands".split(">")[1])
-  //storeInLocalStorage(draggableElementData);
 }

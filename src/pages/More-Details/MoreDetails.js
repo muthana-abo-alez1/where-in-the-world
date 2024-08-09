@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import React, { useEffect, useState,  useCallback } from "react";
 import Header from "../../components/header/header.js";
 import { useParams, Link } from "react-router-dom";
 import { getCountrysByNameService } from "../../services/api/countryService.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import CountrymoreDetails from "../../components/CountrymoreDetails/CountrymoreDetails.js";
-
+import CountrymoreDetails from "../../components/Country-More-Details/CountryMoreDetails.js";
+import { checkDarkMode } from "../../js/darkMode.js";
+import "./MoreDetails.css"
 function MoreDetails() {
   const params = useParams();
   const { name } = params;
@@ -17,19 +18,23 @@ function MoreDetails() {
       setCountry(countryData);
     } catch (error) {
       console.error("Error fetching country data:", error);
+      alert("An error occurred while fetching the country data. Please try again later.");
     }
   }, [name]);
 
   useEffect(() => {
     fetchCountryData();
   }, [fetchCountryData]);
-
+  function toBack(){
+    window.history.back();
+  }
   return (
     <div>
       <Header />
       <div className="container  min-width-335">
         <Link
-          to="../"
+        to="#"
+          onClick={toBack}
           className="btn shadow-sm ps-4 pe-4 pt-0 pb-0 mb-5"
           id="link"
         >
