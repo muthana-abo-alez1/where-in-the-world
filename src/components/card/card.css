@@ -67,7 +67,7 @@ button:hover {
   color: var(--main-color-black);
 }
 .star{
-  z-index: 1000;
+  z-index: 100;
 }
 .draggable {
   cursor: move;
