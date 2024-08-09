@@ -5,11 +5,11 @@
     "static/js/787.28cb0dcd.chunk.js": "/where-in-the-world/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/where-in-the-world/index.html",
     "main.c490683b.css.map": "/where-in-the-world/static/css/main.c490683b.css.map",
-    "main.57394e64.js.map": "/where-in-the-world/static/js/main.289a7de.js.map",
+    "main.57394e64.js.map": "/where-in-the-world/static/js/main.57394e64.js.map",
     "787.28cb0dcd.chunk.js.map": "/where-in-the-world/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c490683b.css",
-    "static/js/main.289a7de.js"
+    "static/js/main.57394e64.js"
   ]
 }
